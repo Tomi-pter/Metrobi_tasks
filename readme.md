@@ -39,7 +39,7 @@ These are the solutions to the challenges given to me.
 
 ### Links
 
-- Solution URL's:
+- Solution URLs:
   [Question 1](https://github.com/Tomi-pter/Metrobi_tasks/tree/main/question_1)
   [Question 2](https://github.com/Tomi-pter/Metrobi_tasks/tree/main/question_2)
   [Question 3](https://github.com/Tomi-pter/Metrobi_tasks/tree/main/question_3)
