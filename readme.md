@@ -34,7 +34,7 @@ These are the solutions to the challenges given to me.
 ![question 3](image-3.png)
 ![question 4](image-2.png)
 ![question 5](image-4.png)
-![question 6](image-5.png)
+![question 6](image-7.png)
 ![question 7](image-6.png)
 
 ### Links
