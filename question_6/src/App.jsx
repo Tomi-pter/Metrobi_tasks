@@ -6,7 +6,6 @@ const ZenosParadox = () => {
   const [tortoisePos, setTortoisePos] = useState(200);
   const [paradoxSteps, setParadoxSteps] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
-  // const [showParadox, setShowParadox] = useState(false);
   const animationRef = useRef();
   const startTimeRef = useRef();
 
@@ -103,15 +102,14 @@ const ZenosParadox = () => {
     };
   }, []);
 
-  // eslint-disable-next-line no-unused-vars
-  const demonstrateParadoxStep = () => {
-    if (currentStep < paradoxSteps.length) {
-      const step = paradoxSteps[currentStep];
-      setAchillesPos(step.achillesEnd);
-      setTortoisePos(step.tortoiseEnd);
-      setCurrentStep(currentStep + 1);
-    }
-  };
+  // const demonstrateParadoxStep = () => {
+  //   if (currentStep < paradoxSteps.length) {
+  //     const step = paradoxSteps[currentStep];
+  //     setAchillesPos(step.achillesEnd);
+  //     setTortoisePos(step.tortoiseEnd);
+  //     setCurrentStep(currentStep + 1);
+  //   }
+  // };
 
   return (
     <div className="p-8 bg-gradient-to-b from-sky-200 to-green-200 min-h-screen">
@@ -212,6 +210,38 @@ const ZenosParadox = () => {
           </button>
         </div>
 
+        <div className="bg-white p-6 rounded-lg shadow-lg mb-6">
+          <h3 className="text-xl font-bold mb-4 text-purple-800">
+            The Paradox Explained
+          </h3>
+          <p className="mb-4 text-gray-700">
+            Zeno argued that Achilles must first reach where the tortoise
+            currently is, but by then the tortoise has moved further ahead. This
+            creates infinite steps:
+          </p>
+
+          <div className="space-y-2 max-h-48 overflow-y-auto">
+            {paradoxSteps.slice(0, currentStep).map((step, index) => (
+              <div key={index} className="p-3 bg-purple-50 rounded text-sm">
+                <strong>Step {step.step}:</strong> When Achilles reaches{" "}
+                {Math.round(step.tortoiseStart)}px (where tortoise was),
+                tortoise is now at {Math.round(step.tortoiseEnd)}px. Gap
+                remaining: {Math.round(step.tortoiseEnd - step.achillesEnd)}px
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 p-4 bg-yellow-50 rounded border-l-4 border-yellow-400">
+            <p className="text-sm text-yellow-800">
+              <strong>The Resolution:</strong> Zeno's PAradox has been
+              disproved. While the paradox creates infinite steps, their
+              durations form a geometric series that converges to a finite time.
+              In reality, Achilles will overtake the tortoise at around 333px
+              after about 13.3 seconds!
+            </p>
+          </div>
+        </div>
+
         <div className="bg-white p-4 rounded-lg shadow text-center">
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div>
@@ -228,11 +258,11 @@ const ZenosParadox = () => {
               <div className="font-bold">Race Status</div>
               <div className="text-lg">
                 {achillesPos >= tortoisePos
-                  ? "🏃‍♂️ Achilles Wins!"
+                  ? "🏃🏾‍♂️‍➡️ Achilles Wins!"
                   : achillesPos >= ROAD_LENGTH
                   ? "🏁 Race Over"
                   : isAnimating
-                  ? "🏃‍♂️ Racing..."
+                  ? "🏃🏾‍♂️‍➡️ Racing..."
                   : "⏸️ Paused"}
               </div>
             </div>
